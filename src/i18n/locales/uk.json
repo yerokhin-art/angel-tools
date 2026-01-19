@@ -1,0 +1,44 @@
+{
+  "welcome": {
+    "title": "Знайти відсутні файли",
+    "description": "Виберіть папку з послідовно названими файлами, щоб виявити прогалини в нумерації.",
+    "openFolder": "Відкрити папку"
+  },
+  "header": {
+    "noFolderSelected": "Папку не вибрано",
+    "openFolder": "Відкрити папку",
+    "searchFiles": "Пошук файлів",
+    "filterFiles": "Фільтрувати файли",
+    "all": "Усі",
+    "available": "Наявні",
+    "missing": "Відсутні",
+    "refresh": "Оновити"
+  },
+  "sidebar": {
+    "root": "Корінь",
+    "folders": "Папки"
+  },
+  "fileTable": {
+    "ariaLabel": "Список файлів",
+    "columnStatus": "Статус",
+    "columnName": "Назва",
+    "columnSize": "Розмір",
+    "columnModified": "Змінено",
+    "statusAvailable": "Наявний",
+    "statusMissing": "Відсутній",
+    "total": "Всього: {{count}}",
+    "available": "Наявні: {{count}}",
+    "missing": "Відсутні: {{count}}",
+    "copyMissing": "Копіювати відсутні ({{count}})"
+  },
+  "emptyState": {
+    "noResultsTitle": "Результатів не знайдено",
+    "noResultsDescription": "Жоден файл не відповідає вашому пошуку \"{{query}}\". Спробуйте змінити параметри пошуку.",
+    "noMissingTitle": "Відсутніх файлів немає",
+    "noMissingDescription": "Чудові новини! Усі файли в послідовності присутні. Прогалин не виявлено.",
+    "noAvailableTitle": "Немає наявних файлів",
+    "noAvailableDescription": "У вибраній директорії файлів не знайдено. Спробуйте вибрати іншу папку.",
+    "noFilesTitle": "Немає файлів",
+    "noFilesDescription": "У вибраній директорії файлів не знайдено. Спробуйте вибрати іншу папку."
+  }
+}

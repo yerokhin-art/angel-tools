@@ -1,0 +1,44 @@
+{
+  "welcome": {
+    "title": "Find Missing Files",
+    "description": "Select a folder containing sequentially named files to discover any gaps in the numbering.",
+    "openFolder": "Open Folder"
+  },
+  "header": {
+    "noFolderSelected": "No folder selected",
+    "openFolder": "Open folder",
+    "searchFiles": "Search files",
+    "filterFiles": "Filter files",
+    "all": "All",
+    "available": "Available",
+    "missing": "Missing",
+    "refresh": "Refresh"
+  },
+  "sidebar": {
+    "root": "Root",
+    "folders": "Folders"
+  },
+  "fileTable": {
+    "ariaLabel": "Files list",
+    "columnStatus": "Status",
+    "columnName": "Name",
+    "columnSize": "Size",
+    "columnModified": "Modified",
+    "statusAvailable": "Available",
+    "statusMissing": "Missing",
+    "total": "Total: {{count}}",
+    "available": "Available: {{count}}",
+    "missing": "Missing: {{count}}",
+    "copyMissing": "Copy Missing ({{count}})"
+  },
+  "emptyState": {
+    "noResultsTitle": "No results found",
+    "noResultsDescription": "No files match your search \"{{query}}\". Try adjusting your search terms.",
+    "noMissingTitle": "No missing files",
+    "noMissingDescription": "Great news! All files in the sequence are present. No gaps were detected.",
+    "noAvailableTitle": "No available files",
+    "noAvailableDescription": "No files found in the selected directory. Try selecting a different folder.",
+    "noFilesTitle": "No files",
+    "noFilesDescription": "No files found in the selected directory. Try selecting a different folder."
+  }
+}

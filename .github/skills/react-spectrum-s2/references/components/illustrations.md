@@ -1,12 +1,6 @@
----
-name: React Spectrum S2 Illustrations usage Instructions
-description: Using React Spectrum (S2) illustrations from `@react-spectrum/s2/illustrations/*`
-applyTo: "**/*"
----
-
 # Illustrations
 
-React Spectrum offers a collection of illustrations that can be imported from `@react-spectrum/s2/illustrations/gradient/generic1`
+React Spectrum offers a collection of illustrations that can be imported from .
 
 ```tsx
 import Cloud from "@react-spectrum/s2/illustrations/gradient/generic1/Cloud";
@@ -216,3 +210,48 @@ import Cloud from "@react-spectrum/s2/illustrations/gradient/generic1/Cloud";
 * VolumeOne
 * Wallet
 * Warning
+
+## Custom illustrations
+
+To use custom illustrations, you first need to convert your SVGs into compatible illustration components. This depends on your bundler.
+
+### Parcel
+
+If you are using Parcel, the `@react-spectrum/parcel-transformer-s2-icon` plugin can be used to convert SVGs to illustration components. First install it into your project as a dev dependency:
+
+```bash
+npm install @react-spectrum/parcel-transformer-s2-icon --dev
+```
+
+Then, add it to your `.parcelrc`:
+
+```tsx
+{
+  extends: "@parcel/config-default",
+  transformers: {
+    "illustration:*.svg": ["@react-spectrum/parcel-transformer-s2-icon"]
+  }
+}
+```
+
+Now you can import illustration SVGs using the `illustration:` [pipeline](https://parceljs.org/features/plugins/#named-pipelines):
+
+```tsx
+import Illustration from 'illustration:./path/to/Illustration.svg';
+```
+
+Note that you must use the name `illustration` for the pipeline.
+
+### Other bundlers
+
+The `@react-spectrum/s2-icon-builder` CLI tool can be used to pre-process a folder of SVG illustrations into TSX files.
+
+```bash
+npx @react-spectrum/s2-icon-builder -i 'path/to/illustrations/*.svg' --type illustration -o 'path/to/destination'
+```
+
+This outputs a folder of TSX files with names corresponding to the input SVG files. You may rename them as you wish. To use them in your application, import them like normal components.
+
+```tsx
+import Illustration from './path/to/destination/Illustration';
+```

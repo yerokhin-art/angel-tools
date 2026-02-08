@@ -1,14 +1,6 @@
----
-name: React Spectrum S2 Icons usage Instructions
-description: Using React Spectrum (S2) icons from `@react-spectrum/s2/icons/*`
-applyTo: "**/*"
----
+# Icons
 
-# React Spectrum S2 Icons Usage
-
-When implementing icons in React using the React Spectrum (S2) library, use the icon components provided in the `@react-spectrum/s2/icons/*` package. These icons are designed to be consistent with Adobe's Spectrum 2 design system and ensure accessibility.
-
-React Spectrum offers a set of open source icons that can be imported from `@react-spectrum/s2/icons/*`.
+React Spectrum offers a set of open source icons that can be imported from .
 
 ```tsx
 import Edit from "@react-spectrum/s2/icons/Edit";
@@ -474,3 +466,58 @@ import Edit from '@react-spectrum/s2/icons/Edit';
 | M | 20px |
 | L | 22px |
 | XL | 26px |
+
+## Custom icons
+
+To use custom icons, you first need to convert your SVGs into compatible icon components. This depends on your bundler.
+
+<InlineAlert variant="notice">
+  <Heading>Requirements</Heading>
+  <Content>To use an SVG as an icon which sizes correctly and uses the correct colors, it must be a square (20x20), with a viewBox of `0 0 20 20`. It must also have a fill with `var(--iconPrimary, #222)`.</Content>
+</InlineAlert>
+
+### Parcel
+
+If you are using Parcel, the `@react-spectrum/parcel-transformer-s2-icon` plugin can be used to convert SVGs to icon components. First install it into your project as a dev dependency:
+
+```bash
+npm install @react-spectrum/parcel-transformer-s2-icon --dev
+```
+
+Then, add it to your `.parcelrc`:
+
+```tsx
+{
+  extends: "@parcel/config-default",
+  transformers: {
+    "icon:*.svg": ["@react-spectrum/parcel-transformer-s2-icon"]
+  }
+}
+```
+
+Now you can import icon SVGs using the `icon:` [pipeline](https://parceljs.org/features/plugins/#named-pipelines):
+
+`import Icon from 'icon:./path/to/Icon.svg';`
+
+### Other bundlers
+
+The `@react-spectrum/s2-icon-builder` CLI tool can be used to pre-process a folder of SVG icons into TSX files.
+
+```bash
+npx @react-spectrum/s2-icon-builder -i 'path/to/icons/*.svg' -o 'path/to/destination'
+```
+
+This outputs a folder of TSX files with names corresponding to the input SVG files. You may rename them as you wish. To use them in your application, import them like normal components.
+`import Icon from './path/to/destination/Icon';`
+
+### Building icons as a library
+
+You can also build the icons as a separate library for distribution so that multiple projects can share the same icons. Or possibly you simply do not want to output tsx files.
+To do this, use the `--isLibrary` flag.
+
+```bash
+npx @react-spectrum/s2-icon-builder -i 'path/to/icons/*.svg' -o 'path/to/destination' --isLibrary
+```
+
+This outputs a folder of ES modules and commonjs modules with names corresponding to the input SVG files. You may rename them as you wish. To use them in your application, import them like normal components.
+`import Icon from 'library-name/path/to/destination/Icon';`
